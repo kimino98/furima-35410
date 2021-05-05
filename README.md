@@ -34,6 +34,7 @@
 | user             | references | foreign_key: true |
 ## Association
 - belongs_to :user
+- has_one :purchase_history
 
 
 
@@ -43,8 +44,8 @@
 
 | Column         |  Type     | Options           |
 | -------------- | --------- | ----------------- |
-| post_cord      | string    | null: false       |
-| prefectures_id | integer   | null: false       |
+| post_code      | string    | null: false       |
+| region_id      | integer   | null: false       |
 | city           | string    | null: false       |
 | address        | string    | null: false       |
 | building_name  | string    |                   |
@@ -52,7 +53,7 @@
 
 ## Association
 - belongs_to :user
-- has_many :purchase_histories
+
 
 
 
