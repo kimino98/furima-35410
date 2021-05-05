@@ -11,27 +11,27 @@
 | first_name         | string | null: false  |
 | family_name_kana   | string | null: false  |
 | first_name_kana    | string | null: false  |
-| birth_day           | date   | null: false  |
+| birth_day          | date   | null: false  |
 
 ## Association
 - has_many :items
-  belongs_to :buyer
+- has_many :buyers
 
 
 
 ## itemsテーブル
 
-| Column           |  Type     | Options           |
-| ---------------- | --------- | ----------------- |
-| name             | string    | null: false       |
-| text             | text      | null: false       |
-| category_id      | integer   | null: false       |
-| status_id        | integer   | null: false       |
-| postage_id       | integer   | null: false       |
-| region_id        | integer   | null: false       |
-| shopping_date    | string    | null: false       |
-| price            | integer   | null: false       |
-| purchase_history | reference | foreign_key: true |
+| Column           |  Type      | Options           |
+| ---------------- | ---------  | ----------------- |
+| name             | string     | null: false       |
+| text             | text       | null: false       |
+| category_id      | integer    | null: false       |
+| status_id        | integer    | null: false       |
+| postage_id       | integer    | null: false       |
+| region_id        | integer    | null: false       |
+| shopping_date_id | integer    | null: false       |
+| price            | integer    | null: false       |
+| user             | references | foreign_key: true |
 ## Association
 - belongs_to :user
 
@@ -41,15 +41,14 @@
 
 ## buyersテーブル
 
-| Column        |  Type     | Options           |
-| ------------- | --------- | ----------------- |
-| user          | reference | foreign_key: true |
-| post_cord     | string    | null: false       |
-| prefectures   | string    | null: false       |
-| city          | string    | null: false       |
-| address       | string    | null: false       |
-| building_name | string    |                   |
-| phone_number  | string    | null: false       |
+| Column         |  Type     | Options           |
+| -------------- | --------- | ----------------- |
+| post_cord      | string    | null: false       |
+| prefectures_id | integer   | null: false       |
+| city           | string    | null: false       |
+| address        | string    | null: false       |
+| building_name  | string    |                   |
+| phone_number   | string    | null: false       |
 
 ## Association
 - belongs_to :user
@@ -59,12 +58,12 @@
 
 ## purchase_history テーブル
 
-| Column         |  Type     | Options           |
-| -------------- | --------- | ----------------- |
-| user           | reference | foreign_key: true |
-| items          | reference | foreign_key: true |
+| Column         |  Type      | Options           |
+| -------------- | ---------- | ----------------- |
+| user           | references | foreign_key: true |
+| item           | references | foreign_key: true |
 
 ## Association
 - belongs_to :user
 - belongs_to :item
-- belongs_tp :buyer
+- has_one    :buyer
