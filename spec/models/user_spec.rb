@@ -7,64 +7,64 @@ RSpec.describe User, type: :model do
       it "emailが空だと登録できない" do
 
       end
-      it "重複したemailが存在する場合は登録できない"
+      it "重複したemailが存在する場合は登録できない" do
 
       end
 
-      it "emailに@がないと登録できない"
+      it "emailに@がないと登録できない" do
 
       end
 
-      it "passwordがないと登録できない"
+      it "passwordがないと登録できない" do
 
       end
 
-      it "passwordが6文字以下だと登録できない"
+      it "passwordが6文字以下だと登録できない" do
 
       end
 
-      it "password_confirmationが空だと登録できない"
+      it "password_confirmationが空だと登録できない" do
 
       end
 
-      it "passwordとpassword_confirmationが一致しないと登録できない"
+      it "passwordとpassword_confirmationが一致しないと登録できない" do
+      
+      end
+
+      it "family_nameが空だと登録できない" do
 
       end
 
-      it "family_nameが空だと登録できない"
+      it "first_nameが空だと登録できない" do
 
       end
 
-      it "first_nameが空だと登録できない"
-
-      end
-
-      it "birth_dayが空だと登録できない"
+      it "birth_dayが空だと登録できない" do
 
       end
     end
     
     context '登録ができないとき' do
-      it "passwordが7文字以上であれば登録できる"
+      it "passwordが7文字以上であれば登録できる" do
 
       end
   
-      it "passwordが7文字以上で英数字混合であれば登録できる"
+      it "passwordが7文字以上で英数字混合であれば登録できる" do
   
       end
   
-      it "family_nameが全角文字であれば登録できる"
+      it "family_nameが全角文字であれば登録できる" do
     
       end
     
-      it "first_nameが全角文字であれあb登録できる"
+      it "first_nameが全角文字であれあb登録できる" do
       end
     
-      it "family_nameが全角カナであれば登録できる"
+      it "family_nameが全角カナであれば登録できる" do
       
       end
   
-      it "first_nameが全角カナであれあb登録できる"
+      it "first_nameが全角カナであれあb登録できる" do
       
       end
     end
