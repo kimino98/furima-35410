@@ -3,6 +3,7 @@ RSpec.describe User, type: :model do
   describe "ユーザー新規登録" do
     context '登録ができないとき' do
       it "nicknameが空だと登録できない" do
+        
       end
       it "emailが空だと登録できない" do
 
