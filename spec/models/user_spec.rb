@@ -127,6 +127,18 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('First name kana is invalid')
       end
 
+      it "family_name_kanaが全角ひらがなでは登録できない" do
+        @user.family_name_kana = "ぜんかく"
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Family name kana is invalid')
+      end
+
+      it "first_name_kanaが全角ひらがなでは登録できない" do
+        @user.first_name_kana = "ぜんかく"
+        @user.valid?
+        expect(@user.errors.full_messages).to include('First name kana is invalid')
+      end
+
       it "birth_dayが空だと登録できない" do
         @user.birth_day = ''
         @user.valid?
