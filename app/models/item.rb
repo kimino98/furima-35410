@@ -13,6 +13,7 @@ class Item < ApplicationRecord
     validates :name
     validates :text
     validates :price
+    validates :image
 
     with_options numericality: { other_than: 1} do
       validates :category_id
