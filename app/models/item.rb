@@ -20,7 +20,7 @@ class Item < ApplicationRecord
       validates :status_id
       validates :postage_id
       validates :region_id
-      validates :shoppoing_date_id
+      validates :shopping_date_id
     end
   end
 
