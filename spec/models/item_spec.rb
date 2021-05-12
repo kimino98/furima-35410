@@ -36,10 +36,22 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
+      it 'category_idが未選択のidの場合登録できない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
+
       it 'status_idが空だと登録できない' do
         @item.status_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
+      end
+
+      it 'status_idが未選択のidの場合登録できない' do
+        @item.status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
 
       it 'postage_idが空だと登録できない' do
@@ -48,10 +60,22 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Postage can't be blank")
       end
 
+      it 'postage_idが未選択のidの場合登録できない' do
+        @item.postage_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Postage must be other than 1")
+      end
+
       it 'region_idが空だと登録できない' do
         @item.region_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Region can't be blank")
+      end
+
+      it 'region_idが未選択のidの場合登録できない' do
+        @item.region_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Region must be other than 1")
       end
 
       it 'shopping_date_idが空だと登録できない' do
@@ -60,7 +84,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shopping date can't be blank")
       end
 
-      it '未選択のidの場合登録できない' do
+      it 'shopping_date_idgaが未選択のidの場合登録できない' do
         @item.shopping_date_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shopping date must be other than 1")
