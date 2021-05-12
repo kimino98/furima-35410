@@ -60,6 +60,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shopping date can't be blank")
       end
 
+      it '未選択のidの場合登録できない' do
+        @item.shopping_date_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shopping date must be other than 1")
+      end
+
       it 'priceが空だと登録できない' do
         @item.price = ''
         @item.valid?
@@ -76,6 +82,12 @@ RSpec.describe Item, type: :model do
         @item.price = 200
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
+      end
+
+      it 'priceが設定上限を超えた場合登録できない' do
+        @item.price = 10000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
     end
   end
