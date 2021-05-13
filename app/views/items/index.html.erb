@@ -125,11 +125,10 @@
     <h2 class='title'>ピックアップカテゴリー</h2>
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
-
+     <% @items.each do |item|%>
       <li class='list'>
-      <% @items.each do |item|%>
         <%= link_to "#" do %>
-        <div class='item-img-content'>
+         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
@@ -138,22 +137,22 @@
           </div>
           <%# //商品が売れていればsold outを表示しましょう %>
 
-        </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= item.name %>
-          </h3>
-          <div class='item-price'>
-            <span><%= item.price %>円<br><%= item.postage.name %></span>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+         </div>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              <%= item.name %>
+            </h3>
+            <div class='item-price'>
+              <span><%= item.price %>円<br><%= item.postage.name %></span>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
             </div>
           </div>
-        </div>
         <% end %>
-      <% end%>
       </li>
+     <% end %>
       
       <% if @items[0] == nil %>
         <li class='list'>
