@@ -1,9 +1,12 @@
 class PurchaseHistoriesController < ApplicationController
 
   def index
+    @buyer_purchase_history = BuyerPurchaseHistory.new
+    @items = Item.all
   end
 
   def create
+    binding.pry
     @buyer_purchase_history = BuyerPurchaseHistory.new(buyer_purchase_history_params)
   end
 
