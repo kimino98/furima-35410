@@ -13,8 +13,7 @@ class BuyerPurchaseHistory
   end
 
   def save
-    PurchaseHistory.create(user_id: user_id, item_id: item_id)
-    Buyer.create(post_code: post_code, region_id: region_id, city: city, address: address, building_name: building_name, phone_number: phone_number, purchase_history_id: purchase_history_id)
-    
+    purchase_history = PurchaseHistory.create(user_id: user_id, item_id: item_id)
+    Buyer.create(post_code: post_code, region_id: region_id, city: city, address: address, building_name: building_name, phone_number: phone_number, purchase_history_id: purchase_history.id)
   end
 end
