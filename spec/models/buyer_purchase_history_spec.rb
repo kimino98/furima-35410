@@ -64,11 +64,37 @@ RSpec.describe BuyerPurchaseHistory, type: :model do
         expect(@buyer_purchase_history.errors.full_messages).to include("Phone number is invalid")
       end
 
+      it 'phone_numberが全角の場合保存できない' do
+        @buyer_purchase_history.phone_number = '０９０１１１１２２２２'
+        @buyer_purchase_history.valid?
+        expect(@buyer_purchase_history.errors.full_messages).to include("Phone number is invalid")
+      end
+
+      it 'phone_numberがハイフンがある場合保存できない' do
+        @buyer_purchase_history.phone_number = '090-1111-2222'
+        @buyer_purchase_history.valid?
+        expect(@buyer_purchase_history.errors.full_messages).to include("Phone number is invalid")
+      end
+
       it 'tokenが空であれば保存できない' do
         @buyer_purchase_history.token = ''
         @buyer_purchase_history.valid?
         expect(@buyer_purchase_history.errors.full_messages).to include("Token can't be blank")
       end
+
+      it 'user_idが存在しないとき保存できない' do
+        @buyer_purchase_history.user_id = ''
+        @buyer_purchase_history.valid?
+        expect(@buyer_purchase_history.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'item_idが存在しないと登録できない' do
+        @buyer_purchase_history.item_id = ''
+        @buyer_purchase_history.valid?
+        expect(@buyer_purchase_history.errors.full_messages).to include("Item can't be blank")
+      end
+
+
     end
   end
 end
