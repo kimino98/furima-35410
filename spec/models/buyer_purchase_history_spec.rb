@@ -13,6 +13,12 @@ RSpec.describe BuyerPurchaseHistory, type: :model do
       it '全ての情報が正しく入力されているとき' do
         expect(@buyer_purchase_history).to be_valid
       end
+
+      it 'building_nameが空でも保存できる' do
+        @buyer_purchase_history.building_name = ''
+        expect(@buyer_purchase_history).to be_valid
+      end
+
     end
 
     context '内容に問題がある時' do
