@@ -43,5 +43,6 @@ class PurchaseHistoriesController < ApplicationController
     if @item.user != current_user || @item.purchase_history.present?
       redirect_to root_path 
     end
+  end
 end
 
