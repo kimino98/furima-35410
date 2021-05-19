@@ -40,7 +40,7 @@ class PurchaseHistoriesController < ApplicationController
   end
   
   def sold_out
-    if @item.user != current_user || @item.purchase_history.present?
+    if @item.user == current_user || @item.purchase_history.present?
       redirect_to root_path 
     end
   end
